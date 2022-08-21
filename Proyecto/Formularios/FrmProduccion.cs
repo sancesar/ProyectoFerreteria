@@ -52,6 +52,8 @@ namespace Proyecto.Formularios
                 Bd.Produccion(Lote,Producto, Fecha, Cantidad, Marca);
                
             }
+            TxtCanEla.Clear();
+            TxtIdLote.Clear();
         }
 
         private void BtnActu_Click(object sender, EventArgs e)
