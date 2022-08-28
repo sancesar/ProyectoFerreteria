@@ -18,6 +18,19 @@ namespace Proyecto.Formularios
         {
             InitializeComponent();
             SetFecha();
+            esconder();
+            Bd.Actulizar2(Listvali);
+            Bd.Actulizar(ListProceso);
+        }
+        private void esconder()
+        {
+            lblSelec.Visible = false;
+            BtnBusqAvan.Visible = false;
+            Lblpro.Visible = false;
+            Cbbproducto.Visible = false;
+            Gbmarca.Visible = false;
+            BtnBuscar.Visible = false;
+            Btncancelar.Visible = false;
         }
         private void SetFecha()
         {
@@ -59,6 +72,45 @@ namespace Proyecto.Formularios
         private void BtnActu_Click(object sender, EventArgs e)
         {
             Bd.Actulizar(ListProceso);
+            Bd.Actulizar2(Listvali);
+        }
+
+        private void BtnBuscarDat_Click(object sender, EventArgs e)
+        {
+            lblSelec.Visible = true;
+            BtnBusqAvan.Visible = true;
+            Lblpro.Visible = true;
+            Cbbproducto.Visible = true;
+            Btncancelar.Visible = true;
+            BtnBuscar.Visible = true;
+            BtnBuscarDat.Visible = false;
+
+        }
+
+        private void Btncancelar_Click(object sender, EventArgs e)
+        {
+            lblSelec.Visible = false;
+            BtnBusqAvan.Visible = false;
+            Lblpro.Visible = false;
+            Cbbproducto.Visible = false;
+            Gbmarca.Visible = false;
+            Btncancelar.Visible = false;
+            BtnBuscar.Visible = false;
+            BtnBuscarDat.Visible = true;
+            Bd.Actulizar2(Listvali);
+        }
+
+        private void BtnBusqAvan_Click(object sender, EventArgs e)
+        {
+            Gbmarca.Visible = true;
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string produc = Cbbproducto.Text;
+            string marbu = CbbMarcaBu.Text;
+
+            Bd.Buscar(produc, marbu, Listvali);
         }
     }
 }

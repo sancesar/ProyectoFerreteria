@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 using MySql.Data.MySqlClient;
 using Proyecto.Formularios;
 
@@ -133,6 +134,22 @@ namespace Proyecto.Metodos
             }
         }
 
+        public void Actulizar2(ListView listProceso)
+        {
+
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM btxxzyr0ildyylyibkf2.Produccion;", connectionBD);
+            MySqlDataAdapter adap = new MySqlDataAdapter();
+            adap.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            DataTable tabla = new DataTable();
+            adap.Fill(ds);
+            tabla = ds.Tables[0];
+            listProceso.Items.Clear();
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                llenarlist(i, tabla, listProceso);
+            }
+        }
 
         public void Produccion(string lote,string producto, string fecha, string cantidad, string marca)
         {
@@ -141,11 +158,19 @@ namespace Proyecto.Metodos
             string fec = fecha;
             string can = cantidad;
             string mar = marca;
+            int valalt = 0;
+            string pre = "";
+            int max = 1000;
+            int min = Int32.Parse(cantidad);
+
+            Random rnd = new Random();
+            valalt = (rnd.Next(min, max + 1));
+            pre = valalt.ToString();
             try
             {
                 connectionBD.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `btxxzyr0ildyylyibkf2`.`Produccion` (`IdLote`, `Produc_Ela`, `Fech_Ela`, `Cant_Ela`, `Marca`) " +
-                    "VALUES ('" + id + "','" + pro + "','" + fec + "','" + can + "','" + mar + "');", connectionBD);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `btxxzyr0ildyylyibkf2`.`Produccion` (`IdLote`, `Produc_Ela`, `Fech_Ela`, `Cant_Ela`, `Marca`, `Cant_Re` ) " +
+                    "VALUES ('" + id + "','" + pro + "','" + fec + "','" + can + "','" + mar + "','" + pre + "');", connectionBD);
                 cmd.ExecuteNonQuery();
 
             }
@@ -153,6 +178,56 @@ namespace Proyecto.Metodos
             {
                 MessageBox.Show("" + ex.ToString());
             }
+        }
+
+        internal void Buscar(string produc, string marbu, ListView listProceso)
+        {
+            if (marbu == "")
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM btxxzyr0ildyylyibkf2.Produccion WHERE Produc_Ela = @produc ;", connectionBD);
+                cmd.Parameters.AddWithValue("@produc", produc);
+                MySqlDataAdapter adap = new MySqlDataAdapter();
+                adap.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                DataTable tabla = new DataTable();
+                adap.Fill(ds);
+                tabla = ds.Tables[0];
+                listProceso.Items.Clear();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    llenarlist(i, tabla, listProceso);
+                }
+            }
+            else
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM btxxzyr0ildyylyibkf2.Produccion WHERE Produc_Ela = @produc AND Marca = @marca ;", connectionBD);
+                cmd.Parameters.AddWithValue("@produc", produc);
+                cmd.Parameters.AddWithValue("@marca", marbu);
+                MySqlDataAdapter adap = new MySqlDataAdapter();
+                adap.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                DataTable tabla = new DataTable();
+                adap.Fill(ds);
+                tabla = ds.Tables[0];
+                listProceso.Items.Clear();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    llenarlist(i, tabla, listProceso);
+                }
+            }
+
+        }
+
+        private void llenarlist(int i, DataTable tabla, ListView listProceso)
+        {
+            DataRow filas = tabla.Rows[i];
+            ListViewItem elementos = new ListViewItem(filas["IdLote"].ToString());
+            elementos.SubItems.Add(filas["Produc_Ela"].ToString());
+            elementos.SubItems.Add(filas["Fech_Ela"].ToString());
+            elementos.SubItems.Add(filas["Marca"].ToString());
+            elementos.SubItems.Add(filas["Cant_Ela"].ToString());
+            elementos.SubItems.Add(filas["Cant_Re"].ToString());
+            listProceso.Items.Add(elementos);
         }
     }
 }

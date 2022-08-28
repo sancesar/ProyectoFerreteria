@@ -45,6 +45,7 @@
             this.CmbMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ListProceso = new System.Windows.Forms.ListView();
+            this.IdLo = new System.Windows.Forms.ColumnHeader();
             this.Proela = new System.Windows.Forms.ColumnHeader();
             this.Fechela = new System.Windows.Forms.ColumnHeader();
             this.Cantela = new System.Windows.Forms.ColumnHeader();
@@ -59,22 +60,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DtEla = new System.Windows.Forms.DateTimePicker();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.Btnmarca = new System.Windows.Forms.Button();
-            this.BtnProducto = new System.Windows.Forms.Button();
-            this.Btncancelar = new System.Windows.Forms.Button();
-            this.Brnfecha = new System.Windows.Forms.Button();
-            this.Gbmarca = new System.Windows.Forms.GroupBox();
-            this.Cbbmarca = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.GbProducto = new System.Windows.Forms.GroupBox();
-            this.Cbbproducto = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Gbfecha = new System.Windows.Forms.GroupBox();
-            this.Dtbfecha = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.BtnBuscar = new System.Windows.Forms.Button();
+            this.BtnBusqAvan = new System.Windows.Forms.Button();
+            this.Cbbproducto = new System.Windows.Forms.ComboBox();
+            this.Lblpro = new System.Windows.Forms.Label();
+            this.lblSelec = new System.Windows.Forms.Label();
+            this.Btncancelar = new System.Windows.Forms.Button();
+            this.Gbmarca = new System.Windows.Forms.GroupBox();
+            this.CbbMarcaBu = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnBuscarDat = new System.Windows.Forms.Button();
             this.Listvali = new System.Windows.Forms.ListView();
+            this.IdLot = new System.Windows.Forms.ColumnHeader();
             this.Proval = new System.Windows.Forms.ColumnHeader();
             this.Fecelaval = new System.Windows.Forms.ColumnHeader();
             this.Marval = new System.Windows.Forms.ColumnHeader();
@@ -82,7 +79,6 @@
             this.Cantreaval = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
             this.LblCerrar = new System.Windows.Forms.Label();
-            this.IdLo = new System.Windows.Forms.ColumnHeader();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgvmapri)).BeginInit();
@@ -92,8 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.Gbmarca.SuspendLayout();
-            this.GbProducto.SuspendLayout();
-            this.Gbfecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -290,6 +284,11 @@
             this.ListProceso.UseCompatibleStateImageBehavior = false;
             this.ListProceso.View = System.Windows.Forms.View.Details;
             // 
+            // IdLo
+            // 
+            this.IdLo.Text = "Id Lote";
+            this.IdLo.Width = 90;
+            // 
             // Proela
             // 
             this.Proela.Text = "Producto";
@@ -396,24 +395,23 @@
             // 
             this.DtEla.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtEla.Location = new System.Drawing.Point(218, 80);
-            this.DtEla.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
+            this.DtEla.MinDate = new System.DateTime(2022, 8, 28, 0, 0, 0, 0);
             this.DtEla.Name = "DtEla";
             this.DtEla.Size = new System.Drawing.Size(151, 27);
             this.DtEla.TabIndex = 0;
-            this.DtEla.Value = new System.DateTime(2022, 7, 10, 13, 3, 17, 0);
+            this.DtEla.Value = new System.DateTime(2022, 8, 28, 0, 0, 0, 0);
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.Btnmarca);
-            this.tabPage3.Controls.Add(this.BtnProducto);
-            this.tabPage3.Controls.Add(this.Btncancelar);
-            this.tabPage3.Controls.Add(this.Brnfecha);
-            this.tabPage3.Controls.Add(this.Gbmarca);
-            this.tabPage3.Controls.Add(this.GbProducto);
-            this.tabPage3.Controls.Add(this.Gbfecha);
             this.tabPage3.Controls.Add(this.BtnBuscar);
+            this.tabPage3.Controls.Add(this.BtnBusqAvan);
+            this.tabPage3.Controls.Add(this.Cbbproducto);
+            this.tabPage3.Controls.Add(this.Lblpro);
+            this.tabPage3.Controls.Add(this.lblSelec);
+            this.tabPage3.Controls.Add(this.Btncancelar);
+            this.tabPage3.Controls.Add(this.Gbmarca);
+            this.tabPage3.Controls.Add(this.BtnBuscarDat);
             this.tabPage3.Controls.Add(this.Listvali);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
@@ -421,70 +419,103 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Validación de producción y servicio";
             // 
-            // label10
+            // BtnBuscar
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(220, 190);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(331, 23);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Seleccione la opcion a buscar:";
+            this.BtnBuscar.Location = new System.Drawing.Point(405, 234);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(90, 29);
+            this.BtnBuscar.TabIndex = 10;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
-            // Btnmarca
+            // BtnBusqAvan
             // 
-            this.Btnmarca.Location = new System.Drawing.Point(550, 231);
-            this.Btnmarca.Name = "Btnmarca";
-            this.Btnmarca.Size = new System.Drawing.Size(94, 29);
-            this.Btnmarca.TabIndex = 7;
-            this.Btnmarca.Text = "Marca";
-            this.Btnmarca.UseVisualStyleBackColor = true;
+            this.BtnBusqAvan.Location = new System.Drawing.Point(264, 309);
+            this.BtnBusqAvan.Name = "BtnBusqAvan";
+            this.BtnBusqAvan.Size = new System.Drawing.Size(148, 49);
+            this.BtnBusqAvan.TabIndex = 9;
+            this.BtnBusqAvan.Text = "Realizar busqueda avanzada";
+            this.BtnBusqAvan.UseVisualStyleBackColor = true;
+            this.BtnBusqAvan.Click += new System.EventHandler(this.BtnBusqAvan_Click);
             // 
-            // BtnProducto
+            // Cbbproducto
             // 
-            this.BtnProducto.Location = new System.Drawing.Point(325, 233);
-            this.BtnProducto.Name = "BtnProducto";
-            this.BtnProducto.Size = new System.Drawing.Size(94, 29);
-            this.BtnProducto.TabIndex = 6;
-            this.BtnProducto.Text = "Producto";
-            this.BtnProducto.UseVisualStyleBackColor = true;
+            this.Cbbproducto.FormattingEnabled = true;
+            this.Cbbproducto.Items.AddRange(new object[] {
+            "Destornillador",
+            "Juego de llaves",
+            "Alicate",
+            "Pala",
+            "Clavos",
+            "Tornillos",
+            "Espatulas",
+            "Tuercas",
+            "Pinzas",
+            "Brochas"});
+            this.Cbbproducto.Location = new System.Drawing.Point(232, 238);
+            this.Cbbproducto.Name = "Cbbproducto";
+            this.Cbbproducto.Size = new System.Drawing.Size(151, 28);
+            this.Cbbproducto.TabIndex = 2;
+            // 
+            // Lblpro
+            // 
+            this.Lblpro.AutoSize = true;
+            this.Lblpro.Location = new System.Drawing.Point(3, 238);
+            this.Lblpro.Name = "Lblpro";
+            this.Lblpro.Size = new System.Drawing.Size(223, 20);
+            this.Lblpro.TabIndex = 1;
+            this.Lblpro.Text = "Seleccione el producto a buscar:";
+            // 
+            // lblSelec
+            // 
+            this.lblSelec.AutoSize = true;
+            this.lblSelec.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSelec.Location = new System.Drawing.Point(222, 199);
+            this.lblSelec.Name = "lblSelec";
+            this.lblSelec.Size = new System.Drawing.Size(331, 23);
+            this.lblSelec.TabIndex = 8;
+            this.lblSelec.Text = "Seleccione la opcion a buscar:";
             // 
             // Btncancelar
             // 
-            this.Btncancelar.Location = new System.Drawing.Point(584, 184);
+            this.Btncancelar.Location = new System.Drawing.Point(586, 193);
             this.Btncancelar.Name = "Btncancelar";
             this.Btncancelar.Size = new System.Drawing.Size(155, 29);
             this.Btncancelar.TabIndex = 5;
             this.Btncancelar.Text = "Cancelar busqueda";
             this.Btncancelar.UseVisualStyleBackColor = true;
-            // 
-            // Brnfecha
-            // 
-            this.Brnfecha.Location = new System.Drawing.Point(56, 233);
-            this.Brnfecha.Name = "Brnfecha";
-            this.Brnfecha.Size = new System.Drawing.Size(94, 29);
-            this.Brnfecha.TabIndex = 4;
-            this.Brnfecha.Text = "Fecha";
-            this.Brnfecha.UseVisualStyleBackColor = true;
+            this.Btncancelar.Click += new System.EventHandler(this.Btncancelar_Click);
             // 
             // Gbmarca
             // 
-            this.Gbmarca.Controls.Add(this.Cbbmarca);
+            this.Gbmarca.Controls.Add(this.CbbMarcaBu);
             this.Gbmarca.Controls.Add(this.label9);
-            this.Gbmarca.Location = new System.Drawing.Point(503, 266);
+            this.Gbmarca.Location = new System.Drawing.Point(10, 268);
             this.Gbmarca.Name = "Gbmarca";
             this.Gbmarca.Size = new System.Drawing.Size(227, 125);
             this.Gbmarca.TabIndex = 3;
             this.Gbmarca.TabStop = false;
             this.Gbmarca.Text = "Busqueda por marca";
             // 
-            // Cbbmarca
+            // CbbMarcaBu
             // 
-            this.Cbbmarca.FormattingEnabled = true;
-            this.Cbbmarca.Location = new System.Drawing.Point(34, 66);
-            this.Cbbmarca.Name = "Cbbmarca";
-            this.Cbbmarca.Size = new System.Drawing.Size(151, 28);
-            this.Cbbmarca.TabIndex = 3;
+            this.CbbMarcaBu.FormattingEnabled = true;
+            this.CbbMarcaBu.Items.AddRange(new object[] {
+            "Truper",
+            "Urrea",
+            "Nacobre",
+            "Bosch",
+            "IUSA",
+            "DeWalt",
+            "Rotoplas",
+            "Austromex",
+            "Phillips",
+            "Makita"});
+            this.CbbMarcaBu.Location = new System.Drawing.Point(34, 66);
+            this.CbbMarcaBu.Name = "CbbMarcaBu";
+            this.CbbMarcaBu.Size = new System.Drawing.Size(151, 28);
+            this.CbbMarcaBu.TabIndex = 3;
             // 
             // label9
             // 
@@ -495,101 +526,51 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Seleccione la marca:";
             // 
-            // GbProducto
+            // BtnBuscarDat
             // 
-            this.GbProducto.Controls.Add(this.Cbbproducto);
-            this.GbProducto.Controls.Add(this.label8);
-            this.GbProducto.Location = new System.Drawing.Point(261, 266);
-            this.GbProducto.Name = "GbProducto";
-            this.GbProducto.Size = new System.Drawing.Size(235, 125);
-            this.GbProducto.TabIndex = 3;
-            this.GbProducto.TabStop = false;
-            this.GbProducto.Text = "Busqueda por producto";
-            // 
-            // Cbbproducto
-            // 
-            this.Cbbproducto.FormattingEnabled = true;
-            this.Cbbproducto.Location = new System.Drawing.Point(44, 66);
-            this.Cbbproducto.Name = "Cbbproducto";
-            this.Cbbproducto.Size = new System.Drawing.Size(151, 28);
-            this.Cbbproducto.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 35);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 20);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Seleccione el producto:";
-            // 
-            // Gbfecha
-            // 
-            this.Gbfecha.Controls.Add(this.Dtbfecha);
-            this.Gbfecha.Controls.Add(this.label7);
-            this.Gbfecha.Location = new System.Drawing.Point(22, 266);
-            this.Gbfecha.Name = "Gbfecha";
-            this.Gbfecha.Size = new System.Drawing.Size(233, 125);
-            this.Gbfecha.TabIndex = 2;
-            this.Gbfecha.TabStop = false;
-            this.Gbfecha.Text = "Busqueda por fecha";
-            // 
-            // Dtbfecha
-            // 
-            this.Dtbfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtbfecha.Location = new System.Drawing.Point(46, 67);
-            this.Dtbfecha.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.Dtbfecha.Name = "Dtbfecha";
-            this.Dtbfecha.Size = new System.Drawing.Size(122, 27);
-            this.Dtbfecha.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Seleccione la fecha:";
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Location = new System.Drawing.Point(29, 184);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(157, 29);
-            this.BtnBuscar.TabIndex = 1;
-            this.BtnBuscar.Text = "Realizar busqueda";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscarDat.Location = new System.Drawing.Point(31, 193);
+            this.BtnBuscarDat.Name = "BtnBuscarDat";
+            this.BtnBuscarDat.Size = new System.Drawing.Size(157, 29);
+            this.BtnBuscarDat.TabIndex = 1;
+            this.BtnBuscarDat.Text = "Realizar busqueda";
+            this.BtnBuscarDat.UseVisualStyleBackColor = true;
+            this.BtnBuscarDat.Click += new System.EventHandler(this.BtnBuscarDat_Click);
             // 
             // Listvali
             // 
             this.Listvali.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IdLot,
             this.Proval,
             this.Fecelaval,
             this.Marval,
             this.Cantpreval,
             this.Cantreaval});
-            this.Listvali.Location = new System.Drawing.Point(19, 14);
+            this.Listvali.Location = new System.Drawing.Point(21, 23);
             this.Listvali.Name = "Listvali";
             this.Listvali.Size = new System.Drawing.Size(733, 164);
             this.Listvali.TabIndex = 0;
             this.Listvali.UseCompatibleStateImageBehavior = false;
             this.Listvali.View = System.Windows.Forms.View.Details;
             // 
+            // IdLot
+            // 
+            this.IdLot.Text = "Id Lote";
+            this.IdLot.Width = 64;
+            // 
             // Proval
             // 
             this.Proval.Text = "Producto";
-            this.Proval.Width = 150;
+            this.Proval.Width = 115;
             // 
             // Fecelaval
             // 
             this.Fecelaval.Text = "Fecha de elaboración";
-            this.Fecelaval.Width = 170;
+            this.Fecelaval.Width = 160;
             // 
             // Marval
             // 
             this.Marval.Text = "Marca";
-            this.Marval.Width = 100;
+            this.Marval.Width = 90;
             // 
             // Cantpreval
             // 
@@ -622,11 +603,6 @@
             this.LblCerrar.Text = "Cerrar sesión";
             this.LblCerrar.Click += new System.EventHandler(this.LblCerrar_Click);
             // 
-            // IdLo
-            // 
-            this.IdLo.Text = "Id Lote";
-            this.IdLo.Width = 90;
-            // 
             // FrmProduccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -655,10 +631,6 @@
             this.tabPage3.PerformLayout();
             this.Gbmarca.ResumeLayout(false);
             this.Gbmarca.PerformLayout();
-            this.GbProducto.ResumeLayout(false);
-            this.GbProducto.PerformLayout();
-            this.Gbfecha.ResumeLayout(false);
-            this.Gbfecha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,27 +662,20 @@
         private GroupBox groupBox1;
         private Label label5;
         private Label label6;
-        private Button BtnBuscar;
+        private Button BtnBuscarDat;
         private ListView Listvali;
         private ColumnHeader Proval;
         private ColumnHeader Fecelaval;
         private ColumnHeader Marval;
         private ColumnHeader Cantreaval;
         private ColumnHeader Cantpreval;
-        private Button Btnmarca;
-        private Button BtnProducto;
         private Button Btncancelar;
-        private Button Brnfecha;
         private GroupBox Gbmarca;
-        private GroupBox GbProducto;
-        private GroupBox Gbfecha;
-        private Label label7;
-        private Label label10;
-        private ComboBox Cbbmarca;
+        private Label lblSelec;
+        private ComboBox CbbMarcaBu;
         private Label label9;
         private ComboBox Cbbproducto;
-        private Label label8;
-        private DateTimePicker Dtbfecha;
+        private Label Lblpro;
         private DataGridViewTextBoxColumn Produc;
         private DataGridViewTextBoxColumn Prov;
         private DataGridViewTextBoxColumn Cant;
@@ -720,5 +685,8 @@
         private Label label11;
         private Button BtnActu;
         private ColumnHeader IdLo;
+        private ColumnHeader IdLot;
+        private Button BtnBusqAvan;
+        private Button BtnBuscar;
     }
 }
