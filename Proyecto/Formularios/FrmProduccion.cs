@@ -188,6 +188,7 @@ namespace Proyecto.Formularios
             TxtMarEdi.Text = "";
             TxtIdModi.Text = "";
             TxtIdModi.Enabled = true;
+
         }
     }
 }
