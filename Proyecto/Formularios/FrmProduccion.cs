@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Proyecto.Formularios
 {
+    
     public partial class FrmProduccion : Form
     {
         ConnectBDD Bd = new ConnectBDD();
@@ -21,6 +22,33 @@ namespace Proyecto.Formularios
             esconder();
             Bd.Actulizar2(Listvali);
             Bd.Actulizar(ListProceso);
+        }
+        private void LlenarProducto()
+        {
+            LbEdi.Items.Clear();
+            LbEdi.Items.Add("Destornillador");
+            LbEdi.Items.Add("Juego de llaves");
+            LbEdi.Items.Add("Alicate");
+            LbEdi.Items.Add("Pala");
+            LbEdi.Items.Add("Clavos");
+            LbEdi.Items.Add("Tornillos");
+            LbEdi.Items.Add("Espatulas");
+            LbEdi.Items.Add("Tuercas");
+            LbEdi.Items.Add("Pinzas");
+            LbEdi.Items.Add("Brochas");
+        }
+        private void LlenarMarca()
+        {
+            LbEdi.Items.Clear();
+            LbEdi.Items.Add("Truper");
+            LbEdi.Items.Add("Urrea");
+            LbEdi.Items.Add("Nacobre");
+            LbEdi.Items.Add("Bosch");
+            LbEdi.Items.Add("DeWalt");
+            LbEdi.Items.Add("Rotoplas");
+            LbEdi.Items.Add("Austromex");
+            LbEdi.Items.Add("Phillips");
+            LbEdi.Items.Add("Makita");
         }
         private void esconder()
         {
@@ -111,6 +139,55 @@ namespace Proyecto.Formularios
             string marbu = CbbMarcaBu.Text;
 
             Bd.Buscar(produc, marbu, Listvali);
+        }
+
+        private void BtnProEdi_Click(object sender, EventArgs e)
+        {
+            LblModi.Text = "Producto";
+            LlenarProducto();
+        }
+
+        private void BtnMarcEdi_Click(object sender, EventArgs e)
+        {
+            LblModi.Text = "Marca";
+            LlenarMarca();
+        }
+
+        private void LbEdi_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (LbEdi.Items.Count == 10)
+            {
+
+                TxtProEdi.Text = LbEdi.SelectedItem.ToString();
+            }
+            else
+            {
+                TxtMarEdi.Text = LbEdi.SelectedItem.ToString();
+            }
+        }
+
+        private void BtnBusEdi_Click(object sender, EventArgs e)
+        {
+            TxtIdModi.Enabled = false;
+            Bd.BuscarEdi(TxtIdModi,TxtMarEdi,TxtProEdi,TxtCanEdi,TxtFecEdi);
+        }
+
+        private void BtnActEdi_Click(object sender, EventArgs e)
+        {
+            Bd.ActulizarEdi(TxtIdModi, TxtMarEdi, TxtProEdi, TxtCanEdi, TxtFecEdi);
+            Limpiar();
+            
+        }
+
+        private void Limpiar()
+        {
+            TxtCanEdi.Text = "";
+            TxtFecEdi.Text = "";
+            TxtProEdi.Text = "";
+            TxtMarEdi.Text = "";
+            TxtIdModi.Text = "";
+            TxtIdModi.Enabled = true;
         }
     }
 }

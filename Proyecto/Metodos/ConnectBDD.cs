@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using MySql.Data.MySqlClient;
@@ -14,14 +15,14 @@ namespace Proyecto.Metodos
     {
         MySqlConnection connectionBD = new MySqlConnection("server= btxxzyr0ildyylyibkf2-mysql.services.clever-cloud.com; " +
             "port= 3306; user id=uiw3felwq3nefzn6; password=byRQJsOZPoqRUBP6Gomr; database=btxxzyr0ildyylyibkf2;");
-
+        MySqlDataReader reader = null;
         public void BddConnect()
         {
             string datos = "";
             try
             {
                 connectionBD.Open();
-                MySqlDataReader reader = null;
+                
                 MySqlCommand cmd = new MySqlCommand("SHOW DATABASES", connectionBD);
                 reader = cmd.ExecuteReader();
 
@@ -180,7 +181,7 @@ namespace Proyecto.Metodos
             }
         }
 
-        internal void Buscar(string produc, string marbu, ListView listProceso)
+        public void Buscar(string produc, string marbu, ListView listProceso)
         {
             if (marbu == "")
             {
@@ -228,6 +229,71 @@ namespace Proyecto.Metodos
             elementos.SubItems.Add(filas["Cant_Ela"].ToString());
             elementos.SubItems.Add(filas["Cant_Re"].ToString());
             listProceso.Items.Add(elementos);
+        }
+
+        internal void BuscarEdi(TextBox TxtIdModi, TextBox txtMarEdi, TextBox txtProEdi, TextBox txtCanEdi, TextBox txtFecEdi)
+        {
+            try
+            {
+                connectionBD.Open();
+                string id = TxtIdModi.Text;
+                MySqlCommand cmd = new MySqlCommand("SELECT Produc_Ela, Fech_Ela, Cant_Ela, Marca FROM btxxzyr0ildyylyibkf2.Produccion WHERE IdLote = @id ;", connectionBD);
+                cmd.Parameters.AddWithValue("@id", id);
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        txtProEdi.Text = reader.GetString(0);
+                        txtFecEdi.Text = reader.GetString(1);
+                        txtCanEdi.Text = reader.GetString(2);
+                        txtMarEdi.Text = reader.GetString(3);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro lote...");
+                    
+                }
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+            finally
+            {
+                connectionBD.Close();
+            }
+        }
+
+        public void ActulizarEdi(TextBox txtIdModi, TextBox txtMarEdi, TextBox txtProEdi, TextBox txtCanEdi, TextBox txtFecEdi)
+        {
+            string id = txtIdModi.Text;
+            string pro = txtProEdi.Text;
+            string fec = txtFecEdi.Text;
+            string can = txtCanEdi.Text;
+            string mar = txtMarEdi.Text;
+
+            try
+            {
+                
+                MySqlCommand cmd = new MySqlCommand("UPDATE `btxxzyr0ildyylyibkf2`.`Produccion` SET `Produc_Ela` = '" + pro + "', " +
+                    "`Fech_Ela` = '" + fec + "', `Cant_Ela` = '" + can + "', `Marca` = '" + mar + "' WHERE `IdLote` = '" + id + "';", connectionBD);
+                connectionBD.Open();
+                cmd.ExecuteNonQuery(); 
+                
+
+                MessageBox.Show("Producto Actualizado...");
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("" + ex.ToString());
+            }finally
+            {
+                connectionBD.Close();
+            }
         }
     }
 }
