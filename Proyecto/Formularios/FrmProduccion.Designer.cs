@@ -80,6 +80,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.LblModi = new System.Windows.Forms.Label();
             this.LbEdi = new System.Windows.Forms.ListBox();
             this.BtnMarcEdi = new System.Windows.Forms.Button();
             this.BtnProEdi = new System.Windows.Forms.Button();
@@ -96,7 +97,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TxtIdModi = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.LblModi = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabPage3.SuspendLayout();
             this.Gbmarca.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -108,6 +111,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -616,6 +621,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(11, 39);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -642,12 +648,21 @@
             this.tabPage4.Controls.Add(this.label7);
             this.tabPage4.Controls.Add(this.TxtIdModi);
             this.tabPage4.Controls.Add(this.pictureBox3);
+            this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(768, 404);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Editar Producción";
+            // 
+            // LblModi
+            // 
+            this.LblModi.AutoSize = true;
+            this.LblModi.Location = new System.Drawing.Point(472, 138);
+            this.LblModi.Name = "LblModi";
+            this.LblModi.Size = new System.Drawing.Size(0, 20);
+            this.LblModi.TabIndex = 28;
             // 
             // LbEdi
             // 
@@ -702,7 +717,7 @@
             // 
             // BtnActEdi
             // 
-            this.BtnActEdi.Location = new System.Drawing.Point(351, 315);
+            this.BtnActEdi.Location = new System.Drawing.Point(291, 318);
             this.BtnActEdi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnActEdi.Name = "BtnActEdi";
             this.BtnActEdi.Size = new System.Drawing.Size(86, 31);
@@ -792,13 +807,35 @@
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
-            // LblModi
+            // label14
             // 
-            this.LblModi.AutoSize = true;
-            this.LblModi.Location = new System.Drawing.Point(472, 138);
-            this.LblModi.Name = "LblModi";
-            this.LblModi.Size = new System.Drawing.Size(0, 20);
-            this.LblModi.TabIndex = 28;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(0, 116);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(411, 20);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "-------------------------------------------------------------------";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.Silver;
+            this.tabPage5.Controls.Add(this.pictureBox4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(768, 404);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Crear reporte";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Proyecto.Properties.Resources.image_removebg_preview;
+            this.pictureBox4.Location = new System.Drawing.Point(48, 255);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(684, 124);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
             // 
             // FrmProduccion
             // 
@@ -831,6 +868,8 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -905,5 +944,8 @@
         private Button BtnProEdi;
         private ListBox LbEdi;
         private Label LblModi;
+        private Label label14;
+        private TabPage tabPage5;
+        private PictureBox pictureBox4;
     }
 }

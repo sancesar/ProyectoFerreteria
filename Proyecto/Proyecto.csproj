@@ -11,6 +11,13 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
     <PackageReference Include="MySql.Data" Version="8.0.30" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.30\Assemblies\net6.0\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
