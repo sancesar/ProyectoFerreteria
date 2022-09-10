@@ -1,5 +1,4 @@
 ﻿using Proyecto.Metodos;
-using Proyecto.Reporte;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
